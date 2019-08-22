@@ -1,0 +1,21 @@
+.post-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.post-container {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-gap: 16px;
+ padding: 16px;
+}
+
+
+@media(min-width: 100px)and(max-width: 575px) {
+  .post-container {
+   display: grid;
+   grid-template-columns: 1fr ;
+   grid-gap: 16px;
+   padding: 0px;
+ }
+}

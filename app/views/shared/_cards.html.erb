@@ -1,0 +1,16 @@
+<div class="card-container">
+  <div class="card-title">
+    <%= post.user.email %>
+  </div>
+  <div class="card-image">
+    <%= cl_image_tag post.photo, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div class="card-description">
+    <%= link_to post_path(post) do %>
+    <%= post.user.email %> : <%= post.title %>
+    <% end %>
+  </div>
+  <div class="card-time">
+    <%= post.created_at.strftime("Printed on %B %d of %Y") %>
+  </div>
+</div>
