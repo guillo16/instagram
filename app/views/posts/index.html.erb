@@ -1,14 +1,16 @@
 <h1>hello from post index</h1>
-<%= link_to "about", pages_about_path  %>
+<div class="post-wrapper">
+  <div class="post-container">
+    <% @posts.each do |post| %>
+
+    <%= render 'shared/cards', post: post %>
+
+    <% end %>
+  </div>
+</div>
 
 
-<% @posts.each do |post| %>
-<%= link_to post_path(post) do %>
-<%= post.title %>
-<%= post.photo %>
-<%end %>
+
+<% if policy(Post).create? %>
+<%= link_to "new post", new_post_path  %>
 <% end %>
-
-<br>
-
- <%= link_to "new post", new_post_path  %>
