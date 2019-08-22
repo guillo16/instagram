@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :create, :edit, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.all
   end
@@ -13,17 +13,23 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to posts.path
+    @post.user = current_user
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @post.update(post_params)
-    @post.save
-    redirect_to posts_path
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -37,6 +43,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:posts).permit(:title, :photo)
+    params.require(:post).permit(:title, :photo)
   end
 end

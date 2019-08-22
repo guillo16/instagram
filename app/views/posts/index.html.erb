@@ -1,0 +1,14 @@
+<h1>hello from post index</h1>
+<%= link_to "about", pages_about_path  %>
+
+
+<% @posts.each do |post| %>
+<%= link_to post_path(post) do %>
+<%= post.title %>
+<%= post.photo %>
+<%end %>
+<% end %>
+
+<br>
+
+ <%= link_to "new post", new_post_path  %>
