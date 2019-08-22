@@ -14,3 +14,6 @@
 <% if policy(Post).create? %>
 <%= link_to "new post", new_post_path  %>
 <% end %>
+
+
+<%= link_to "profile", current_user %>
