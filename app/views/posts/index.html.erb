@@ -11,4 +11,6 @@
 
 <br>
 
- <%= link_to "new post", new_post_path  %>
+<% if policy(Post).create? %>
+<%= link_to "new post", new_post_path  %>
+<% end %>
