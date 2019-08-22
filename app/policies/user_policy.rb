@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def update?
+    true
+  end
 end

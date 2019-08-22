@@ -1,6 +1,8 @@
 <div class="card-container">
   <div class="card-title">
-    <%= post.user.email %>
+    <% avatar_profile =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+    <%= cl_image_tag avatar_profile, height: 60, width: 60, crop: :fill, class: "user-profile" %>
+    <%= post.user.nickname %>
   </div>
   <div class="card-image">
     <%= cl_image_tag post.photo, height: 300, width: 400, crop: :fill %>
