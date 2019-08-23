@@ -5,7 +5,7 @@ class PostPolicy < ApplicationPolicy
     end
   end
   def show?
-    return true
+    true
   end
 
   def create?

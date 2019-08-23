@@ -1,0 +1,10 @@
+.btn-instagram {
+  color: white;
+  i {
+    color: grey;
+    font-size: 25px;
+  }
+  &:hover {
+    color: white;
+  }
+}
