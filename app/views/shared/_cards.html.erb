@@ -3,6 +3,23 @@
     <% avatar_profile =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
     <%= cl_image_tag avatar_profile, height: 60, width: 60, crop: :fill, class: "user-profile" %>
     <%= post.user.nickname %>
+    <div class="dropdown show">
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        d
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+
+        <%= link_to 'edit', post_path(post) %>
+
+
+
+
+        <%= link_to 'Delete',  post, class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
   </div>
   <div class="card-image">
     <%= cl_image_tag post.photo, height: 300, width: 400, crop: :fill %>
