@@ -2,22 +2,54 @@
   background-color: white;
 }
 
+.user-profile {
+  border-radius: 50%;
+}
+
 .card-image {
   img {
     width: 100%;
-    height: 300px;
+    height: 400px;
   }
 }
 
 .card-title {
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
+.card-comments {
+  padding-top: 10px;
+  padding-left: 10px;
+  i {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+}
 .card-description {
   padding: 10px;
 }
 
 .card-time {
   padding: 10px;
+  margin-bottom: 20px;
+  color: grey;
 
 }
+
+
+
+.image-top {
+  display: flex;
+  align-items: center;
+  h3 {
+    font-size: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+
+  }
+}
+
