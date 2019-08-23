@@ -2,7 +2,7 @@
   <div class="card-title">
     <div class="image-top">
       <% avatar_profile =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
-      <%= cl_image_tag avatar_profile, height: 60, width: 60, crop: :fill, class: "user-profile" %>
+      <%= cl_image_tag avatar_profile, height: 50, width: 50, crop: :fill, class: "user-profile" %>
       <% title = post.user.nickname || post.user.email%>
       <h3><%= title %></h3>
     </div>
@@ -23,12 +23,16 @@
   </div>
 </div>
 <div class="card-image">
-  <%= cl_image_tag post.photo, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag post.photo, height: 400, crop: :fill %>
+</div>
+<div class="card-comments">
+  <i class="far fa-heart"></i>
+  <i class="far fa-comment"></i>
 </div>
 <div class="card-description">
-  <%= post.user.email %> : <%= post.title %>
+  <strong><%=title %></strong> <%= post.title %>
 </div>
 <div class="card-time">
-  <%= post.created_at.strftime("Printed on %B %d of %Y") %>
+  <%= post.created_at.strftime("%B %d of %Y") %>
 </div>
 </div>
