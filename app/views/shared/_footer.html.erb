@@ -1,0 +1,22 @@
+<div class="footer-container">
+  <div class="footer-home">
+    <%= link_to root_path do %>
+    <i class="fas fa-home"></i>
+    <% end %>
+  </div>
+  <div class="footer-add">
+   <% if policy(Post).create? %>
+   <%= link_to  new_post_path do %>
+   <i class="far fa-plus-square"></i>
+   <% end %>
+   <% end %>
+ </div>
+ <div class="footer-image">
+  <%= link_to  current_user do %>
+  <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+  <%= cl_image_tag avatar_url, height: 50, width: 50, crop: :fill, class: "user-avatar" %>
+  <% end %>
+ </div>
+</div>
+
+

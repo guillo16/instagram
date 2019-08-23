@@ -1,18 +1,9 @@
 <div class="post-wrapper">
   <div class="post-container">
     <% @posts.each do |post| %>
-
     <%= render 'shared/cards', post: post %>
-
     <% end %>
   </div>
 </div>
 
 
-
-<% if policy(Post).create? %>
-<%= link_to "new post", new_post_path  %>
-<% end %>
-
-
-<%= link_to "profile", current_user %>
