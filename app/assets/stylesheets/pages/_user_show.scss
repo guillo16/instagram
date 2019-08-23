@@ -1,0 +1,27 @@
+.profile-container {
+  margin-top: 80px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-right: 40px;
+}
+
+
+.profile-top {
+   h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+   }
+  img {
+    border-radius: 50%;
+  }
+}
+
+
+.edit-profile {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

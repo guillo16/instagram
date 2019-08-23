@@ -12,11 +12,14 @@
    <% end %>
  </div>
  <div class="footer-image">
+  <% if user_signed_in? %>
   <%= link_to  current_user do %>
   <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
   <%= cl_image_tag avatar_url, height: 50, width: 50, crop: :fill, class: "user-avatar" %>
   <% end %>
- </div>
+  <% else %>
+  <% end %>
+</div>
 </div>
 
 
