@@ -1,12 +1,41 @@
-<h1>hello from show view</h1>
-
-<%= cl_image_tag @post.photo, height: 300, width: 400, crop: :fill %>
-
-
-<%= link_to "edit", edit_post_path  %>
-
-<%= link_to "go back", posts_path  %>
-
-<%= link_to 'Destroy',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="post-show-container">
+  <div class="show-image-top">
+    <% avatar_profile =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+    <%= cl_image_tag avatar_profile, crop: :fill%>
+    <% title = @post.user.nickname || @post.user.email%>
+    <h3><%= title %></h3>
+  </div>
+  <div class="card-image">
+    <%= cl_image_tag @post.photo, height: 400, crop: :fill %>
+  </div>
+  <div class="card-comments">
+    <i class="far fa-heart"></i>
+    <%= link_to post_path(@post) do  %>
+    <i class="far fa-comment"></i>
+    <% end %>
+    <% if policy(@post).destroy? %>
+    <%= link_to @post,  method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="fas fa-trash-alt"></i>
+    <% end %>
+    <% end %>
+    <% if policy(@post).edit? %>
+    <%= link_to edit_post_path(@post) do %>
+    <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="card-description">
+    <strong><%=title %></strong> <%= @post.title %>
+  </div>
+  <div class="post-show-coments">
+    <h2><span id="review-count"><%=@post.reviews.size%></span> Coments</h2>
+  </div>
+  <div id="reviews">
+    <% @post.reviews.each do |review| %>
+    <%= render 'reviews/show', review: review %>
+    <% end %>
+  </div>
+  <%= render 'reviews/form', post: @post, review: @review %>
+</div>
 
 

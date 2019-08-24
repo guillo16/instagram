@@ -27,12 +27,64 @@
   i {
     font-size: 30px;
     margin-right: 10px;
+    color: black;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 .card-description {
   padding: 10px;
 }
+// coments part of the card
+.card-coment {
+  padding: 10px;
+  h2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: grey;
 
+  }
+}
+
+.coment-container {
+
+  display: flex;
+  align-items: flex-star;
+   h3 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding-top: 4px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+}
+
+.coment-image {
+  img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 10px;
+    color: lightgrey;
+  }
+}
+
+
+
+
+
+
+//time part of the card
 .card-time {
   padding: 10px;
   margin-bottom: 20px;
