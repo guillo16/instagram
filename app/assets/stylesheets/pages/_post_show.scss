@@ -1,5 +1,8 @@
 .post-show-container {
   margin-top: 40px;
+  width: 600px;
+  margin: 40px auto;
+  background-color: white;
 }
 
 .show-image-top {
@@ -26,9 +29,17 @@
 
 .post-show-coments {
   padding: 20px;
-h2 {
-  font-size: 20px;
-  font-weight: bold;
-  color: grey;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+  }
 }
+
+
+@media(min-width: 100px)and(max-width: 600px) {
+  .post-show-container {
+    margin-top: 40px;
+    width: 100%;
+  }
 }
