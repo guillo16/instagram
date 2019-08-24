@@ -2,8 +2,24 @@
 
 <%= cl_image_tag @post.photo, height: 300, width: 400, crop: :fill %>
 
+<h2>
+  coments: <span id="review-count"><%=@post.reviews.size%></span>
+</h2>
 
-<%= link_to "edit", edit_post_path  %>
+<div id="reviews">
+  <% if @post.reviews.blank? %>
+    Be the first to leave a review for <%= @post.title %>
+  <% else %>
+    <% @post.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', post: @post, review: @review %>
+
+
+
 
 <%= link_to "go back", posts_path  %>
 
