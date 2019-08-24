@@ -1,0 +1,29 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-top: 1px solid black;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  height: 70px;
+
+  i {
+    color: black;
+    font-size: 25px;
+  }
+}
+.footer-image {
+
+  img {
+    border-radius: 50%;
+
+  }
+}
+
+body {
+  margin-bottom: 70px;
+
+}
