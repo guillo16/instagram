@@ -1,0 +1,34 @@
+.post-show-container {
+  margin-top: 40px;
+}
+
+.show-image-top {
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+}
+
+#reviews {
+  padding: 20px;
+}
+
+.post-show-coments {
+  padding: 20px;
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: grey;
+}
+}
