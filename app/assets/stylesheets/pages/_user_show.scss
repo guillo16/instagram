@@ -10,7 +10,7 @@
 
 .profile-top {
    h2 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
    }
@@ -24,4 +24,16 @@
   text-align: center;
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+
+.profile-followers {
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 13px;
+  }
 }

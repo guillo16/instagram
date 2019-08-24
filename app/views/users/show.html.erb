@@ -1,10 +1,10 @@
 <div class="profile-container">
   <div class="profile-top">
     <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
-    <%= cl_image_tag avatar_url, height: 150, width: 150, crop: :fill, class: "user-avatar" %>
+    <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
     <h2><%= current_user.nickname %></h2>
   </div>
-  <div class="profile-posts">
+  <div class="profile-followers">
    <h2><%= @posts.count %></h2>
    <p>Publications</p>
  </div>
@@ -12,7 +12,7 @@
    <h2>200</h2>
    <p>Followers</p>
  </div>
- <div class="profile-following">
+ <div class="profile-followers">
    <h2>300</h2>
    <p>Following</p>
  </div>
