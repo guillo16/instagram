@@ -4,6 +4,11 @@
     <i class="fas fa-home"></i>
     <% end %>
   </div>
+  <div class="footer-user">
+    <%= link_to users_path do %>
+    <i class="fas fa-search"></i>
+    <% end %>
+  </div>
   <div class="footer-add">
    <% if policy(Post).create? %>
    <%= link_to  new_post_path do %>
