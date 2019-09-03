@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User).where.not(id: current_user.id)
+    @posts = Post.all
   end
 
   def follow

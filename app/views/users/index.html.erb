@@ -3,3 +3,7 @@
 <ul>
   <%= render @users %>
 </ul>
+
+<% @posts.each do |post| %>
+<%= post.title %>
+<% end %>
