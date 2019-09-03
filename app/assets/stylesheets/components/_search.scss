@@ -1,4 +1,17 @@
+//users index
 
+.user-wrapper {
+  width: 90%;
+  margin: 70px auto;
+}
+
+.user-container {
+  img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+}
 // image under users follow and unfollow
 .search-wrapper {
   width: 500px;
@@ -7,7 +20,7 @@
 
 .search-container {
  display: grid;
- grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr;
  grid-gap: 0px;
 
 }
@@ -16,8 +29,8 @@
 .search-img {
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 150px;
     border: 1px solid white;
     margin-right: 0px;
     margin-left: 0px;
