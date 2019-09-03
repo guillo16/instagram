@@ -1,6 +1,6 @@
 <div class="post-show-container">
   <div class="show-image-top">
-    <% avatar_profile =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+    <% avatar_profile =  @post.user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
     <%= cl_image_tag avatar_profile, crop: :fill%>
     <% title = @post.user.nickname || @post.user.email%>
     <h3><%= title %></h3>

@@ -4,8 +4,11 @@
 <% end %>
 <div class="profile-container">
   <div class="profile-top">
-    <% avatar_url =  current_user.photo || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" %>
-    <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
+    <%if current_user.photo == nil %>
+    <img src="https://images.unsplash.com/photo-1567520470058-530f7fe55b2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1260&q=80" alt="">
+    <% else %>
+    <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
+    <% end %>
     <h2><%= current_user.nickname %></h2>
   </div>
   <div class="profile-followers">

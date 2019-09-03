@@ -1,10 +1,14 @@
 <li data-user=<%= user.id %>>
-   <% avatar_url =  user.photo || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" %>
-    <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
-  <%= user.email %>
-  <% if current_user.is_following?(user.id) %>
-  <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
-  <% else %>
-  <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
-  <% end %>
+  <%if user.photo == nil %>
+ <img src="https://images.unsplash.com/photo-1567520470058-530f7fe55b2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1260&q=80" alt="">
+ <% else %>
+ <%= cl_image_tag user.photo, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
+ <% end %>
+ <%= user.email %>
+ <% if current_user.is_following?(user.id) %>
+ <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
+ <% else %>
+ <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+ <% end %>
 </li>
+
