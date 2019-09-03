@@ -1,0 +1,14 @@
+<div class="user-wrapper">
+  <h1>Users:</h1>
+
+   <%= render @users %>
+
+</div>
+<div class="search-wrapper">
+  <div class="search-container ">
+    <% @posts.each do |post| %>
+    <%= render 'shared/search', post: post %>
+    <% end %>
+  </div>
+</div>
+

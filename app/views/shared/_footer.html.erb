@@ -4,12 +4,20 @@
     <i class="fas fa-home"></i>
     <% end %>
   </div>
+  <div class="footer-user">
+    <%= link_to users_path do %>
+    <i class="fas fa-search"></i>
+    <% end %>
+  </div>
   <div class="footer-add">
    <% if policy(Post).create? %>
    <%= link_to  new_post_path do %>
    <i class="far fa-plus-square"></i>
    <% end %>
    <% end %>
+ </div>
+ <div class="footer-like">
+   <i class="far fa-heart"></i>
  </div>
  <div class="footer-image">
   <% if user_signed_in? %>

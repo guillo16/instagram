@@ -1,28 +1,31 @@
+<div class="profile-wrapper">
+  <p></p>
+  <p><%= current_user.email  %></p>
+  <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
+</div>
 <div class="profile-container">
   <div class="profile-top">
-    <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
-    <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
-    <h2><%= current_user.nickname %></h2>
-  </div>
-  <div class="profile-followers">
+   <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+   <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
+   <h2><%= current_user.nickname %></h2>
+ </div>
+ <div class="profile-followers">
    <h2><%= @posts.count %></h2>
    <p>Publications</p>
  </div>
  <div class="profile-followers">
-   <h2>200</h2>
+   <h2><%= @user.followers.count %></h2>
    <p>Followers</p>
  </div>
  <div class="profile-followers">
-   <h2>300</h2>
+   <h2><%= @user.following.count %></h2>
    <p>Following</p>
  </div>
 </div>
 <div class="edit-profile">
   <%= link_to "Edit profile", edit_user_path, class: "btn-edit-profile" %>
 </div>
-
 <% @posts.each do |post| %>
-
 <%= render 'shared/cards', post: post %>
 <% end %>
 
