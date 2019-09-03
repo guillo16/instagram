@@ -1,0 +1,24 @@
+.search-wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.search-container {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ grid-gap: 0px;
+
+}
+
+
+.search-img {
+
+  img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}

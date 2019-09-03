@@ -3,7 +3,10 @@
 <ul>
   <%= render @users %>
 </ul>
-
-<% @posts.each do |post| %>
-<%= post.title %>
-<% end %>
+<div class="search-wrapper">
+  <div class="search-container ">
+    <% @posts.each do |post| %>
+    <%= render 'shared/search', post: post %>
+    <% end %>
+  </div>
+</div>
