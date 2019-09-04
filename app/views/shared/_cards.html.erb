@@ -47,14 +47,7 @@
   <% end %>
   <% post.reviews.each do |review| %>
   <div id="panel" style= 'display: none'>
-    <div class="coment-container">
-      <div class="coment-image">
-        <%= cl_image_tag review.user.photo, crop: :fill %>
-        <h2><%= review.created_at.strftime("%B %d of %Y") %></h2>
-      </div>
-      <h3><%= review.user.nickname %></h3>
-      <p><%= review.content %></p>
-    </div>
+    <%= render 'reviews/show', review: review %>
   </div>
   <% end %>
 </div>
@@ -75,8 +68,4 @@
     });
   }
 </script>
-<style>
-  .block {
-    display: block;
-  }
-</style>
+
