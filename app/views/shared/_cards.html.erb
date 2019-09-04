@@ -36,11 +36,15 @@
 </div>
 <div class="card-coment">
   <%if post.reviews.size == 0 %>
+  <%= link_to post_path(post) do %>
   <h2>View <%=post.reviews.size + 1 %> coment</h2>
+  <% end %>
   <% else %>
+  <%= link_to post_path(post) do %>
   <h2>View the <%=post.reviews.size + 1 %> coments</h2>
   <% end %>
-  <% post.reviews.each do |review| %>
+  <% end %>
+  <% post.reviews.last(2).reverse_each do |review| %>
   <div class="coment-container">
     <div class="coment-image">
       <%= cl_image_tag review.user.photo, crop: :fill %>
@@ -55,3 +59,5 @@
   <%= post.created_at.strftime("%B %d of %Y") %>
 </div>
 </div>
+
+
