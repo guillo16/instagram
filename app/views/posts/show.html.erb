@@ -9,7 +9,13 @@
     <%= cl_image_tag @post.photo, height: 400, crop: :fill %>
   </div>
   <div class="card-comments">
-    <%= button_to 'Like', post_likes_path(@post), method: :post %>
+
+    <div id="likes">
+
+
+  <%= render partial: 'likes', locals: { post: @post } %>
+
+</div>
     <i class="far fa-heart"></i>
     <%= link_to post_path(@post) do  %>
     <i class="far fa-comment"></i>
