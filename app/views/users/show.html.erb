@@ -22,7 +22,6 @@
    <p>Following</p>
  </div>
 </div>
-
 <div class="edit-profile">
   <% if current_user == @user %>
   <%= link_to "Edit profile", edit_user_path, class: "btn-edit-profile" %>
@@ -35,8 +34,6 @@
   <% end %>
   <% end %>
 </div>
-
-
 
 
 <% @posts.each do |post| %>
