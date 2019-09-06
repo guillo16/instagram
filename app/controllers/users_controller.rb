@@ -25,9 +25,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts
-    @user = current_user
+    @user = User.find(params[:id])
     authorize @user
+    if current_user == @user
+      @posts = current_user.posts
+    else
+      @posts = @user.posts
+    end
   end
 
   def edit

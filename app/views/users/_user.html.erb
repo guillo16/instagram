@@ -1,11 +1,8 @@
 <div class="user-container">
+  <%= link_to user_path(user) do  %>
  <% avatar_url =  user.photo || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" %>
  <%= cl_image_tag avatar_url, height: 50, width: 50, crop: :fill, class: "user-avatar" %>
  <%= user.email %>
- <% if current_user.is_following?(user.id) %>
- <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
- <% else %>
- <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
- <% end %>
 </div>
 
+<% end %>

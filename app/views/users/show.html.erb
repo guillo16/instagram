@@ -1,13 +1,13 @@
 <div class="profile-wrapper">
   <p></p>
-  <p><%= current_user.email  %></p>
+  <p><%= @user.email  %></p>
   <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
 </div>
 <div class="profile-container">
   <div class="profile-top">
-   <% avatar_url =  current_user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
+   <% avatar_url =  @user.photo || "https://www.w3schools.com/howto/img_avatar.png" %>
    <%= cl_image_tag avatar_url, height: 100, width: 100, crop: :fill, class: "user-avatar" %>
-   <h2><%= current_user.nickname %></h2>
+   <h2><%= @user.nickname %></h2>
  </div>
  <div class="profile-followers">
    <h2><%= @posts.count %></h2>
@@ -23,9 +23,19 @@
  </div>
 </div>
 <div class="edit-profile">
+  <% if current_user == @user %>
   <%= link_to "Edit profile", edit_user_path, class: "btn-edit-profile" %>
+
+  <% else %>
+  <% if current_user.is_following?(@user.id) %>
+  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "btn-edit-profile" %>
+  <% else %>
+  <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true, class: "btn-edit-profile" %>
+  <% end %>
+  <% end %>
 </div>
+
+
 <% @posts.each do |post| %>
 <%= render 'shared/cards', post: post %>
 <% end %>
-
