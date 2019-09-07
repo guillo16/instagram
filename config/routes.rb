@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'pages/about'
+  get 'likes/like_post'
+
+  get 'likes/unlike_post'
+
+  post '/posts/:id/like_post' => 'likes#like_post'
+  post '/posts/:id/unlike_post' => 'likes#unlike_post'
   root to: 'posts#index'
   resources :posts do
     resources :reviews, only: :create
-    resources :likes
   end
   resources :users, only: [:index, :show, :edit, :update] do
     member do

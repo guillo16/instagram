@@ -1,47 +1,30 @@
 class LikesController < ApplicationController
-  before_action :find_post
-  before_action :find_like, only: [:destroy]
+  before_action :set_post
 
+  def like_post
 
-  def create
-    @post = Post.find(params[:post_id])
-    @like = Like.new
-    @like.post = @post
-    @like.user = current_user
-    authorize @like
-    if @like.save
+    if current_user.like_post @post.id
       respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js # <-- will render `app/views/reviews/create.js.erb`
-      end
-    else
-      respond_to do |format|
-        format.html { render 'posts/show' }
-        format.js # <-- idem
+        format.html { redirect_to @post }
+        format.js
       end
     end
   end
 
-  def destroy
+  def unlike_post
     authorize @like
-    if !(already_liked?)
-      flash[:notice] = "Cannot unlike"
-    else
-      @like.destroy
+    if current_user.unlike_post @post.id
+      respond_to do |format|
+        format.html { redirect_to @post }
+        format.js
+      end
     end
-    redirect_to post_path(@post)
   end
+
 
   private
-
-  def find_post
-    @post = Post.find(params[:post_id])
-  end
-
-
-
-  def already_liked?
-    Like.where(user_id: current_user.id, post_id:
-      params[:post_id]).exists?
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post
+      @post = Post.find(params[:id])
+    end
 end

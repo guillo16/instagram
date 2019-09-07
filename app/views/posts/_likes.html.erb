@@ -1,10 +1,18 @@
 
 
-<%= button_to 'Like', post_likes_path(post), method: :post%>
+            <strong><%= post.likes.count %></strong>
+            <% if post.likes.count == 1 %>
+              <strong>like</strong>
+            <% else %>
+              <strong>likes</strong>
+            <% end %>
 
+              <% if current_user.likes.find_by(post_id: post.id).nil? %>
+                | <%= link_to 'Like Post', "/posts/#{post.id}/like_post", method: :post %>
+              <% else %>
+                | <%= link_to 'Unlike Post', "/posts/#{post.id}/unlike_post", method: :post %>
+              <% end %>
 
-
-<p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
 
 
