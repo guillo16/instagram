@@ -1,7 +1,15 @@
 <div class="profile-wrapper">
-  <p></p>
-  <p><%= @user.email  %></p>
-  <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-lock"></i>  <%= @user.email  %>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
 </div>
 <div class="profile-container">
   <div class="profile-top">
