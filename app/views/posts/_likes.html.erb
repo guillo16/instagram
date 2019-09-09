@@ -1,0 +1,12 @@
+
+<% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+<div class="likes-heart">
+  <i class="fas fa-heart"></i>
+</div>
+<% else %>
+<%= link_to post_likes_path(post), method: :post  do %>
+<i class="far fa-heart"></i>
+<% end %>
+<% end %>
+

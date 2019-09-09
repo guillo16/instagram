@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
-
+  has_many :likes, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   validates :title, presence: true

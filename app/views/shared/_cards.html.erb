@@ -26,9 +26,17 @@
   <%= cl_image_tag post.photo, height: 400, crop: :fill %>
 </div>
 <div class="card-comments">
-  <i class="far fa-heart"></i>
+  <%= render partial: 'posts/likes', locals: { post: post } %>
   <%= link_to post_path(post) do  %>
   <i class="far fa-comment"></i>
+  <% end %>
+</div>
+<div class="likes-count">
+  <% if post.likes.count > 0 %>
+  <%= link_to  post_likes_path(post) do  %>
+  <strong><%= post.likes.count %> Likes</strong>
+  <% end %>
+  <% else %>
   <% end %>
 </div>
 <div class="card-description">
@@ -40,8 +48,8 @@
   <h2 >Leave the first comment</h2>
   <% end %>
   <% elsif %>
-    <% post.reviews.size == 1  %>
-     <h2 onclick="myFunction()">View the <%=post.reviews.size %> coment</h2>
+  <% post.reviews.size == 1  %>
+  <h2 onclick="myFunction()">View the <%=post.reviews.size %> coment</h2>
   <% else %>
   <h2 onclick="myFunction()">View the <%=post.reviews.size %> coments</h2>
   <% end %>
