@@ -5,7 +5,7 @@ class LikePolicy < ApplicationPolicy
     end
   end
 
-  def like_post?
+  def create?
     return true
   end
 

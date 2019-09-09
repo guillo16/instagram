@@ -1,30 +1,35 @@
 class LikesController < ApplicationController
-  before_action :set_post
+  def index
+    @likes = Like.all
+  end
 
-  def like_post
-
-    if current_user.like_post @post.id
+  def create
+    @post = Post.find(params[:post_id])
+    @like = Like.new
+    @like.post = @post
+    @like.user = current_user
+    authorize @like
+      if @like.save
+        respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        end
+      else
       respond_to do |format|
-        format.html { redirect_to @post }
-        format.js
+        format.html { render 'posts/show' }
+        format.js  # <-- idem
       end
     end
   end
 
-  def unlike_post
-    authorize @like
-    if current_user.unlike_post @post.id
-      respond_to do |format|
-        format.html { redirect_to @post }
-        format.js
-      end
-    end
+  def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+    redirect_to root_path
   end
 
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
-end
+
+  end

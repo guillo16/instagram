@@ -9,14 +9,9 @@
     <%= cl_image_tag @post.photo, height: 400, crop: :fill %>
   </div>
   <div class="card-comments">
-
     <div id="likes">
-
-
-  <%= render partial: 'likes', locals: { post: @post } %>
-
-</div>
-    <i class="far fa-heart"></i>
+      <%= render partial: 'likes', locals: { post: @post } %>
+    </div>
     <%= link_to post_path(@post) do  %>
     <i class="far fa-comment"></i>
     <% end %>
@@ -29,6 +24,12 @@
     <%= link_to edit_post_path(@post) do %>
     <i class="fas fa-pencil-alt"></i>
     <% end %>
+    <% end %>
+  </div>
+  <div class="likes-count">
+    <% if @post.likes.count > 0 %>
+    <strong><%= @post.likes.count %> Likes</strong>
+    <% else %>
     <% end %>
   </div>
   <div class="card-description">
