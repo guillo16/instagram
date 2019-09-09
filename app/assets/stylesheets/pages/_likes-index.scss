@@ -34,3 +34,20 @@
     color: grey;
   }
 }
+
+.likes-heart {
+  i {
+    color: red;
+  }
+}
+
+.likes-count {
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      color: grey;
+    }
+  }
+
+}

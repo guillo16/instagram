@@ -1,8 +1,10 @@
 <div class="like-wrapper">
-  <% @post.likes.each do |like| %>
+  <% @post.likes.reverse_each do |like| %>
   <div class="like-page-container">
     <div class="avatar-first">
+      <%= link_to users_path do  %>
       <img src="<%= like.user.photo %>" alt="">
+      <% end %>
     </div>
     <div class="like-content">
       <p><strong><%= like.user.nickname %></strong> Like the post of <strong><%= like.post.user.nickname %></strong> </p>

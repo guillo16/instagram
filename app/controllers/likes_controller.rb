@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
 
   def index
-     @post = Post.find(params[:post_id])
-    @likes = policy_scope(Like).order(created_at: :desc)
+    @post = Post.find(params[:post_id])
+    @likes = policy_scope(Like).order(created_at: :asc)
   end
 
   def create
@@ -30,8 +30,6 @@ class LikesController < ApplicationController
     redirect_to root_path
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
 
   end
