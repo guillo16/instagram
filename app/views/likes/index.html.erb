@@ -1,0 +1,16 @@
+<div class="like-wrapper">
+  <% @likes.each do |like| %>
+  <div class="like-page-container">
+    <div class="avatar-first">
+      <img src="<%= like.user.photo %>" alt="">
+    </div>
+    <div class="like-content">
+      <p><strong><%= like.user.nickname %></strong> Like the post of <strong><%= like.post.user.nickname %></strong> </p>
+      <h4><%= like.created_at.strftime("%B %d at %I:%M%p") %></h4>
+    </div>
+    <div class="avatar-last">
+     <img src="<%= like.post.photo %>" alt="">
+   </div>
+ </div>
+ <% end %>
+</div>

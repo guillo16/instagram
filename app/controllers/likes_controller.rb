@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
+
   def index
-    @likes = Like.all
+     @post = Post.find(params[:post_id])
+    @likes = policy_scope(Like).order(created_at: :desc)
   end
 
   def create

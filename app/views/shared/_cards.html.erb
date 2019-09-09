@@ -33,7 +33,9 @@
 </div>
 <div class="likes-count">
   <% if post.likes.count > 0 %>
+  <%= link_to  post_likes_path(post) do  %>
   <strong><%= post.likes.count %> Likes</strong>
+  <% end %>
   <% else %>
   <% end %>
 </div>

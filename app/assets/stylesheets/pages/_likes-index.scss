@@ -1,0 +1,36 @@
+.like-wrapper {
+  text-align: center;
+  width: 500px;
+  margin: 80px auto;
+}
+.like-page-container {
+
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.avatar-first {
+  img {
+    padding: 5px;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.avatar-last {
+  img {
+    padding: 5px;
+    height: 70px;
+    width: 70px;
+  }
+
+}
+
+.like-content {
+  h4 {
+    font-size: 12px;
+    color: grey;
+  }
+}
