@@ -2,24 +2,53 @@
 
 .user-wrapper {
   width: 90%;
-  margin: 70px auto;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+
+  button {
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+    padding: 10px 70px;
+    font-weight: bold;
+    color: grey;
+    background-color: white;
+    border-radius: 10px;
+    outline: none;
+  }
 }
 
 .user-container {
+  text-align: left;
+
+ display: flex;
+ a {
+  color: black;
+  text-decoration: none;
+  &:hover {
+    color: grey;
+  }
+}
+}
+
+.user-avatars {
+  padding-right: 20px;
   img {
     border-radius: 50%;
     margin-bottom: 20px;
   }
-
-  a {
-    color: black;
-    text-decoration: none;
-    &:hover {
-      color: grey;
-    }
-  }
-
 }
+
+.users-names {
+  p {
+    color: grey;
+  }
+}
+
+
+
+
 // image under users follow and unfollow
 .search-wrapper {
   width: 500px;
@@ -30,6 +59,7 @@
  display: grid;
  grid-template-columns: 1fr 1fr 1fr;
  grid-gap: 0px;
+ padding-bottom: 50px;
 
 }
 
