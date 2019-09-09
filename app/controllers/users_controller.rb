@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:follow, :unfollow]
 
   def index
-    @users = policy_scope(User).where.not(id: current_user.id)
+    @users = policy_scope(User).where.not(id: current_user.id).order(email: :asc)
     @posts = Post.all
   end
 
@@ -41,9 +41,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    @user.update(user_params)
-    redirect_to current_user
     authorize @user
+    if
+      @user.update(user_params)
+      redirect_to current_user
+    else
+      render :edit
+    end
   end
 
   private

@@ -11,6 +11,14 @@
     margin-bottom: 20px;
   }
 
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      color: grey;
+    }
+  }
+
 }
 // image under users follow and unfollow
 .search-wrapper {
