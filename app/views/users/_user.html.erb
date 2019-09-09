@@ -1,8 +1,14 @@
 <div class="user-container">
-  <%= link_to user_path(user) do  %>
- <% avatar_url =  user.photo || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" %>
- <%= cl_image_tag avatar_url, height: 50, width: 50, crop: :fill, class: "user-avatar" %>
- <%= user.email %>
+  <div class="user-avatars">
+    <%= link_to user_path(user) do  %>
+    <% avatar_url =  user.photo || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" %>
+    <%= cl_image_tag avatar_url, height: 60, width: 60, crop: :fill, class: "user-avatar" %>
+  </div>
+  <div class="users-names">
+    <strong><%= user.nickname %></strong>
+    <p><%= user.email %></p>
+  </div>
+  <% end %>
 </div>
 
-<% end %>
+

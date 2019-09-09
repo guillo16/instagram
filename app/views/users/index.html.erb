@@ -1,8 +1,8 @@
 <div class="user-wrapper">
-  <h1>Users:</h1>
-
+  <button onclick="mySearch()"> <i class="fas fa-search"></i> Search Users</button>
+  <div id="search" style= 'display: none'>
    <%= render @users %>
-
+ </div>
 </div>
 <div class="search-wrapper">
   <div class="search-container ">
@@ -12,3 +12,16 @@
   </div>
 </div>
 
+
+<script>
+  function mySearch() {
+    document.querySelectorAll("#search").forEach((search) => {
+      if (search.style.display === "none") {
+        search.style.display = "block";
+      } else {
+        search.style.display = "none";
+
+      }
+    });
+  }
+</script>
