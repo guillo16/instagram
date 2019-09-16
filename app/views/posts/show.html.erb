@@ -33,7 +33,14 @@
     <% end %>
   </div>
   <div class="card-description">
-    <strong><%=title %></strong> <%= @post.title %>
+    <strong><%=title %></strong>
+    <% @post.title.to_s.split(' ').each do |word| %>
+    <% if word.start_with?('#') %>
+    <%= link_to word, search_path(query: word) %>
+    <%else %>
+    <%= word %>
+    <%end %>
+    <% end %>
   </div>
   <div class="post-show-coments">
     <h2><span id="review-count"><%=@post.reviews.size%></span> Coments</h2>
