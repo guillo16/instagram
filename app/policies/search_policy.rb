@@ -4,4 +4,5 @@ class SearchPolicy < ApplicationPolicy
       scope.all
     end
   end
+
 end

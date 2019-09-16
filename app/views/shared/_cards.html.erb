@@ -40,7 +40,15 @@
   <% end %>
 </div>
 <div class="card-description">
-  <strong><%=title %></strong> <%= post.title %>
+  <strong><%=title %></strong>
+     <% post.title.to_s.split(' ').each do |word| %>
+    <% if word.start_with?('#') %>
+    <%= link_to word, search_path(query: word) %>
+    <%else %>
+    <%= word %>
+    <%end %>
+    <% end %>
+
 </div>
 <div class="card-coment">
   <%if post.reviews.size == 0 %>
