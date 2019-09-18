@@ -9,6 +9,9 @@
     <i class="fas fa-search"></i>
     <% end %>
   </div>
+  <div class="footer-user">
+    <%= link_to 'messages', conversations_path  %>
+  </div>
   <div class="footer-add">
    <% if policy(Post).create? %>
    <%= link_to  new_post_path do %>
