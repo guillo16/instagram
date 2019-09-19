@@ -10,14 +10,18 @@
   <% @messages.each do |message| %>
   <% if message.body %>
   <% user = User.find(message.user_id) %>
-  <% if user.photo.present? %>
-  <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "user-profile" %>
-  <% else %>
-  <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 50, width: 50, crop: :fill, class: "user-profile" %>
-  <% end %>
-  <h4><strong><%= user.email %></strong></h4>
+  <div class="message-container">
+    <div class="message-top">
+      <% if user.photo.present? %>
+      <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "user-profile" %>
+      <% else %>
+      <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 50, width: 50, crop: :fill, class: "user-profile" %>
+      <% end %>
+      <h4><strong><%= user.email %></strong></h4>
+    </div>
+    <p><%= message.body %></p>
+  </div>
   <p><%= message.message_time %></p>
-  <p><%= message.body %></p>
   <% end %>
   <% end %>
 </div>
