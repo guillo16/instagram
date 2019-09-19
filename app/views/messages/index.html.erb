@@ -4,28 +4,20 @@
 <br>
 <br>
 <div class="conversation">
-
-
   <% if @over_ten %>
   <%= link_to 'Show Previous', '?m=all' %>
   <% end %>
-
   <% @messages.each do |message| %>
   <% if message.body %>
   <% user = User.find(message.user_id) %>
-  <% if user = current_user %>
-  <div class="text-center">
-    <h4><strong><%= user.email %></strong></h4>
-    <p><%= message.message_time %></p>
-    <p><%= message.body %></p>
-  </div>
+  <% if user.photo.present? %>
+  <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "user-profile" %>
   <% else %>
-  <div class="text-right">
-    <h4><strong><%= user.email %></strong></h4>
-    <p><%= message.message_time %></p>
-    <p><%= message.body %></p>
-  </div>
+  <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 50, width: 50, crop: :fill, class: "user-profile" %>
   <% end %>
+  <h4><strong><%= user.email %></strong></h4>
+  <p><%= message.message_time %></p>
+  <p><%= message.body %></p>
   <% end %>
   <% end %>
 </div>
