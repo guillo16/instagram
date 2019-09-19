@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-<div class="conversation">
+<div class="messages-wrapper">
   <% if @over_ten %>
   <%= link_to 'Show Previous', '?m=all' %>
   <% end %>
@@ -13,9 +13,9 @@
   <div class="message-container">
     <div class="message-top">
       <% if user.photo.present? %>
-      <%= cl_image_tag user.photo, height: 50, width: 50, crop: :fill, class: "user-profile" %>
+      <%= cl_image_tag user.photo, height: 40, width: 40, crop: :fill, class: "user-profile" %>
       <% else %>
-      <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 50, width: 50, crop: :fill, class: "user-profile" %>
+      <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 40, width: 40, crop: :fill, class: "user-profile" %>
       <% end %>
       <h4><strong><%= user.email %></strong></h4>
     </div>
@@ -25,13 +25,20 @@
   <% end %>
   <% end %>
 </div>
+<div class="messages-form">
+  <div class="message-text">
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
 
-<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+    <%= f.text_area :body, class: "form-control" %>
 
-<%= f.text_area :body, class: "form-control" %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+  </div>
+  <div class="button-send">
+    <%= f.button :button, class: 'btn-send' do %>
+    <i class="far fa-paper-plane"></i>
+    <% end %>
+  </div>
+  <% end %>
+</div>
 
-<%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
 
-<%= f.submit "Add Reply", class: "btn btn-primary" %>
-
-<% end %>

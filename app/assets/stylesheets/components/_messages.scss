@@ -1,16 +1,14 @@
-.conversation {
-  width: 80%;
-  margin: 80px auto;
+//messages style
+.messages-wrapper {
   background-color: white;
   padding: 40px;
+  margin-bottom: 200px;
   p {
     text-align: right;
     color: grey;
     font-size: 13px;
   }
 }
-
-
 
 .message-top {
   display: flex;
@@ -34,5 +32,47 @@
   border-radius: 6px;
   margin-bottom: 0px;
   font-size: 14px;
- }
+}
+}
+
+
+.messages-form {
+  position: fixed;
+  bottom: 100px;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  border-top: 1px solid grey;
+
+
+}
+
+.message-text {
+  width: 90%;
+  border-radius: 6px;
+  .form-control {
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    line-height: 1;
+    font-size: 14px;
+    margin-bottom: 0px;
+    border-color: blue;
+    margin: 0 auto;
+    float: none;
+    p {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.btn-send {
+  padding-top: 10px;
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  i {
+    font-size: 20px;
+  }
 }
