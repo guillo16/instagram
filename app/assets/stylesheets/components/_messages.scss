@@ -10,6 +10,7 @@
   }
 }
 
+
 .message-top {
   display: flex;
   align-items: flex-end;
@@ -22,12 +23,12 @@
   }
 
 }
-
+//message buble
 .message-container {
  p {
   text-align: left;
   padding: 10px;
-  background-color: blue;
+  background-color: $blue;
   color: white;
   border-radius: 6px;
   margin-bottom: 0px;
@@ -35,7 +36,7 @@
 }
 }
 
-
+//messages form
 .messages-form {
   position: fixed;
   bottom: 100px;
@@ -58,7 +59,7 @@
     line-height: 1;
     font-size: 14px;
     margin-bottom: 0px;
-    border-color: blue;
+    border-color: $blue;
     margin: 0 auto;
     float: none;
     p {
@@ -74,5 +75,6 @@
   border: none;
   i {
     font-size: 20px;
+    color: $blue;
   }
 }
