@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="messages-wrapper">
+  <% if @over_ten %>
+  <%= link_to 'Show Previous', '?m=all' %>
+  <% end %>
+  <% @messages.each do |message| %>
+  <% if message.body %>
+  <% user = User.find(message.user_id) %>
+  <div class="message-container">
+    <div class="message-top">
+      <% if user.photo.present? %>
+      <%= cl_image_tag user.photo, height: 40, width: 40, crop: :fill, class: "user-profile" %>
+      <% else %>
+      <%= cl_image_tag "https://www.w3schools.com/howto/img_avatar.png", height: 40, width: 40, crop: :fill, class: "user-profile" %>
+      <% end %>
+      <h4><strong><%= user.email %></strong></h4>
+    </div>
+    <p><%= message.body %></p>
+  </div>
+  <p><%= message.message_time %></p>
+  <% end %>
+  <% end %>
+</div>
+<div class="messages-form">
+  <div class="message-text">
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+
+    <%= f.text_area :body, class: "form-control" %>
+
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+  </div>
+  <div class="button-send">
+    <%= f.button :button, class: 'btn-send' do %>
+    <i class="far fa-paper-plane"></i>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+
